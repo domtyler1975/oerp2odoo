@@ -6,7 +6,7 @@ from src.main import oerp2odoo
 
 if (len(sys.argv) != 2):
     print("\nHelper for converting an OpenERP (v7) module for use with Odoo 12+")
-    print("Usage: oerp2odoo <module path>\n")
+    print("Usage: oerp2odoo <module_path>\n")
 else:
     mod_path = os.path.abspath(sys.argv[1])
     oerp2odoo(mod_path)
