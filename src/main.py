@@ -14,6 +14,14 @@ def oerp2odoo(mod_path):
             ext = path.splitext(file_name)[1].lower()
             file_full_path = path.join(dir_name, file_name)
 
+            if file_name == "__openerp__.py":
+                print(f" - Renaming: {file_name}")
+                new_name = "__manifest__.py"
+                new_path = path.join(dir_name, new_name)
+                os.rename(file_full_path, new_path)
+                file_name = new_name
+                file_full_path = new_path
+
             if ext == ".pyc":
                 print(f" - Deleting: {file_name}")
                 os.remove(file_full_path)
