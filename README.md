@@ -12,11 +12,18 @@ We recommend first running python's `2to3` command line utility first:
 2to3 -wn module_dir   # update all code in module_dir
 ```
 
-then:
+then run this tool:
 
 ```
-oerp2odoo <module_path>
+oerp2odoo <module_path> [custom_replacements_file]
 ```
+
+# Manual Fixes Still Needed
+
+## `fields.function` fields
+
+In Odoo, you now turn ordinary fields into computed fields by adding a
+`_compute` attribute
 
 # License
 
