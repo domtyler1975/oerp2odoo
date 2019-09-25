@@ -6,7 +6,13 @@ contributions welcome!
 
 # Usage
 
-We recommend first running python's `2to3` command line utility first, then:
+We recommend first running python's `2to3` command line utility first:
+
+```
+2to3 -wn module_dir   # update all code in module_dir
+```
+
+then:
 
 ```
 oerp2odoo <module_path>
