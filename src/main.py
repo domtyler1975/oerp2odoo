@@ -2,6 +2,7 @@ import os
 from os import path
 from . import util
 from .conversions.replace_text import replace_text
+from .conversions.replace_columns import replace_columns
 
 REPLACEMENTS_FILE = path.abspath(
     path.join(path.dirname(__file__), "./replacements.py"))
@@ -40,4 +41,9 @@ def oerp2odoo(mod_path, custom_replacements=None):
             if custom_replacements and ext in custom_replacements.keys():
                 content = util.get_content(file_full_path)
                 content = replace_text(content, custom_replacements[ext])
+                util.set_content(file_full_path, content)
+
+            if ext == ".py":
+                content = util.get_content(file_full_path)
+                content = replace_columns(content)
                 util.set_content(file_full_path, content)
