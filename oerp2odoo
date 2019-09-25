@@ -3,7 +3,7 @@
 import sys
 from os import path
 from src.main import oerp2odoo
-from src.util import get_content
+from src.util import load_replacements
 
 if (len(sys.argv) < 2):
     print("\nHelper for converting an OpenERP (v7) module for use with Odoo 12+")
@@ -14,7 +14,6 @@ else:
     replacements = None
     if len(sys.argv) > 2:
         replacements_file = sys.argv[2]
-        rep_content = get_content(path.abspath(replacements_file))
-        replacements = eval(rep_content)
+        replacements = load_replacements(path.abspath(replacements_file))
 
     oerp2odoo(mod_path, replacements)

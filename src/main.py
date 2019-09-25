@@ -5,7 +5,7 @@ from .conversions.replace_text import replace_text
 
 REPLACEMENTS_FILE = path.abspath(
     path.join(path.dirname(__file__), "./replacements.py"))
-REPLACEMENTS = eval(util.get_content(REPLACEMENTS_FILE))
+REPLACEMENTS = util.load_replacements(REPLACEMENTS_FILE)
 
 
 def oerp2odoo(mod_path, custom_replacements=None):
