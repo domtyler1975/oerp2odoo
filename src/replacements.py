@@ -8,10 +8,13 @@
         "from tools.translate import _": [regex("^from tools\.translate import _$"), "from odoo import _"],
         "import tools": [regex("^import tools$"), "from odoo import tools"],
         "name_get()": [regex("^    def name_get\(self,.*?\):"), "    @api.multi\n    def name_get(self):"],
+        "select=1": ["select=1", "index=True"],
+        "select=0": ["select=0", "index=False"],
         "": ["", ""],
     },
     ".xml": {
         "<openerp>": ["<openerp>", "<odoo>"],
         "</openerp>": ["</openerp>", "</odoo>"],
+        "ir.sequence.type record": [regex('^\\s*<record model="ir.sequence.type".*?<\/record>'), ""]
     }
 }

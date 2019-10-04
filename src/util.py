@@ -12,13 +12,15 @@ def set_content(file_name, content):
         text_file.write(content)
 
 
-def load_replacements(replacements_file):
+DEFAULT_REGEX_FLAGS = re.MULTILINE | re.DOTALL
+
+
+def load_replacements(replacements_file, flags=DEFAULT_REGEX_FLAGS):
 
     def regex(pattern):
         return re.compile(
             pattern,
-            flags=re.MULTILINE
-        )
+            flags=flags)
 
     rep_content = get_content(replacements_file)
     replacements = eval(rep_content, {
